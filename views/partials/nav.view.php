@@ -11,6 +11,13 @@
               <a href="/" class="<?php url('/')?> rounded-md  px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
               <a href="about" class="<?php url("/about")?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
               <a href="contact" class=" <?php url('/contact')?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contacts</a>
+              <?php session_start(); if (isset($_SESSION['user_id'])): ?>
+                <a href="/controllers/logout.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Logout (<?= htmlspecialchars($_SESSION['username']) ?>)</a>
+                <a href="/controllers/dashboard.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Dashboard</a>
+              <?php else: ?>
+                <a href="/controllers/login.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Login</a>
+                <a href="/controllers/register.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Register</a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
